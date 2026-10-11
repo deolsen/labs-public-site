@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://labs.ladyknowledge.com/homelab/</loc>
+         <lastmod>2026-10-11</lastmod>
+    </url>
+    <url>
+         <loc>https://labs.ladyknowledge.com/homelab/articles/backups-that-restore/</loc>
+         <lastmod>2026-10-11</lastmod>
+    </url>
+    <url>
+         <loc>https://labs.ladyknowledge.com/homelab/articles/identity-as-the-spine/</loc>
+         <lastmod>2026-10-11</lastmod>
+    </url>
+    <url>
+         <loc>https://labs.ladyknowledge.com/homelab/articles/kubernetes-on-postgresql/</loc>
+         <lastmod>2026-10-11</lastmod>
+    </url>
+    <url>
+         <loc>https://labs.ladyknowledge.com/homelab/articles/secrets-in-three-tiers/</loc>
+         <lastmod>2026-10-11</lastmod>
+    </url>
+</urlset>

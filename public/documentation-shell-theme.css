@@ -1,0 +1,23 @@
+/* Generated from the existing index.html documentation palette. */
+:root{
+ --doc-bg:var(--rui-preview-canvas);--surface:var(--rui-preview-surface);--surface2:var(--rui-preview-surface2);--text:var(--rui-preview-text);--muted:var(--rui-preview-muted);
+ --rule:var(--rui-preview-rule);--rule-strong:var(--rui-preview-strong);--brand:var(--rui-preview-brand);--brand2:var(--rui-preview-brand2);--accent:var(--rui-preview-accent);
+ --info:var(--rui-preview-info);--success:var(--rui-preview-success);--warning:var(--rui-preview-warning);--danger:var(--rui-preview-danger);--focus:var(--rui-preview-focus);
+ --selection:var(--rui-preview-selection);--selection-border:var(--rui-preview-selectionBorder);--canvas:var(--rui-preview-canvas);--dark:#111920;
+ --radius:var(--rui-preview-controlRadius);--shadow:0 .45rem 1.2rem rgba(16,24,32,.14);
+ --s1:.25rem;--s2:.5rem;--s3:.75rem;--s4:1rem;--s6:1.5rem;--s8:2rem;--s12:3rem;
+ --display:var(--rui-preview-display);--body:var(--rui-preview-body);--mono:var(--rui-preview-mono);
+ --navw:17.25rem;--tocw:13rem;
+}
+html[data-theme="dark"]{--doc-bg:var(--rui-preview-canvas);--surface:var(--rui-preview-surface);--surface2:var(--rui-preview-surface2);--text:var(--rui-preview-text);--muted:var(--rui-preview-muted);--rule:var(--rui-preview-rule);--rule-strong:var(--rui-preview-strong)}.header{transition:none}html[data-theme="dark"] .side{background:#121b23}html[data-theme="dark"] .side a{color:#bec9d2}html[data-theme="dark"] .side a:hover{background:#1b2731}html[data-theme="dark"] .side a.current{background:#493d0c;border-left-color:#ffcc33;color:#fff}html[data-theme="dark"] .main,html[data-theme="dark"] .toc{color:var(--text)}html[data-theme="dark"] .chip,html[data-theme="dark"] .related a,html[data-theme="dark"] .viewtoggle button{background:#17212b;color:#dbe2e7;border-color:#41515e}html[data-theme="dark"] .example{background:#151e27;border-color:#52616e}html[data-theme="dark"] .exhead{background:#1d2832;border-color:#40505c}html[data-theme="dark"] .decision{border-color:#53616e}html[data-theme="dark"] .spec,html[data-theme="dark"] .spec th{background:#151e27;color:#f1f5f7}html[data-theme="dark"] .spec td,html[data-theme="dark"] .spec th{border-color:#354451}html[data-theme="dark"] .sectionbox{background:#112a3f}html[data-theme="dark"] .agent{background:#361821}html[data-theme="dark"] a{color:#ffcc33}
+.stage:not(.dark-stage){
+ --doc-bg:var(--rui-preview-canvas);--surface:var(--rui-preview-surface);--surface2:var(--rui-preview-surface2);--text:var(--rui-preview-text);--muted:var(--rui-preview-muted);
+ --rule:var(--rui-preview-rule);--rule-strong:var(--rui-preview-strong);--brand:var(--rui-preview-brand);--brand2:var(--rui-preview-brand2);--accent:var(--rui-preview-accent);
+ --info:var(--rui-preview-info);--success:var(--rui-preview-success);--warning:var(--rui-preview-warning);--danger:var(--rui-preview-danger);--focus:var(--rui-preview-focus);
+ --selection:var(--rui-preview-selection);--selection-border:var(--rui-preview-selectionBorder);--canvas:var(--rui-preview-canvas);--dark:#111920;
+ --radius:var(--rui-preview-controlRadius);--shadow:0 .45rem 1.2rem rgba(16,24,32,.14);
+ --s1:.25rem;--s2:.5rem;--s3:.75rem;--s4:1rem;--s6:1.5rem;--s8:2rem;--s12:3rem;
+ --display:var(--rui-preview-display);--body:var(--rui-preview-body);--mono:var(--rui-preview-mono);
+ --navw:17.25rem;--tocw:13rem;
+}
+.stage:not(.dark-stage){color:var(--text)}

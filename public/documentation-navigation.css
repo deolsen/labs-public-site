@@ -1,0 +1,249 @@
+/* Documentation-shell rules only. Research UI specimens retain their own contracts. */
+:root{--rui-doc-offset:5rem}
+.rui-skip{position:fixed;inset-block-start:-6rem;inset-inline-start:1rem;z-index:2000;padding:.75rem 1rem;background:var(--surface);color:var(--text);border:2px solid var(--focus)}
+.rui-skip:focus{inset-block-start:.5rem}
+.rui-area-navigation{display:flex;flex-wrap:wrap;gap:0 .45rem;padding:0 1rem;background:var(--surface);border-bottom:1px solid var(--rule)}
+.rui-area-navigation a{display:flex;align-items:center;min-height:2.8rem;padding:.4rem .55rem;color:var(--text);font-size:.8rem;text-decoration:none;border-bottom:3px solid transparent}
+.rui-area-navigation a:hover{background:var(--surface2)}
+.rui-area-navigation a[data-current-area]{border-bottom-color:var(--brand);font-weight:700}
+html[data-theme="dark"] .rui-area-navigation a[data-current-area]{border-bottom-color:var(--accent)}
+.rui-area-navigation a:focus-visible,.rui-browse a:focus-visible,.rui-browse summary:focus-visible,.rui-mobile-toc a:focus-visible,.rui-mobile-toc summary:focus-visible,.rui-catalog-filters input:focus-visible,.rui-catalog-filters select:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.side[data-rui-navigation="2"]{top:var(--rui-doc-offset);height:calc(100dvh - var(--rui-doc-offset));padding:.8rem .75rem 2rem}
+.rui-browse>summary{display:none}
+.rui-browse ul,.rui-mobile-toc ul{list-style:none;margin:.3rem 0 .75rem;padding:0}
+.rui-browse li{margin:0}
+.rui-browse .rui-topic-children{margin:.2rem 0 .6rem;margin-inline-start:.75rem;padding-inline-start:.6rem;border-inline-start:1px solid var(--rule)}
+.rui-browse .rui-topic-children a{font-size:.8rem;line-height:1.45}
+.rui-browse nav>details{border-top:1px solid var(--rule);padding:.25rem 0}
+.rui-browse nav>details>summary{padding:.55rem .3rem;font-size:.8rem;font-weight:700;cursor:pointer;line-height:1.4}
+.rui-browse nav>details>ul{margin-inline-start:.55rem;border-inline-start:1px solid var(--rule)}
+.rui-browse nav>details a{padding-inline-start:.7rem}
+.rui-browse .rui-topic-title{margin:.25rem .45rem .7rem;font-size:.9rem;font-weight:700;color:var(--text)}
+.rui-browse .rui-nav-related{padding-top:.6rem;border-top:1px solid var(--rule);font-size:.8rem}
+.rui-browse a{overflow-wrap:anywhere}
+.rui-mobile-toc{display:none}
+.toc{top:var(--rui-doc-offset)!important;max-height:calc(100dvh - var(--rui-doc-offset) - .5rem)!important}
+.toc a[aria-current="location"],.rui-mobile-toc a[aria-current="location"]{font-weight:700;border-inline-start:3px solid var(--brand);color:var(--text)}
+html[data-theme="dark"] .toc a[aria-current="location"],html[data-theme="dark"] .rui-mobile-toc a[aria-current="location"]{border-inline-start-color:var(--accent)}
+.main>section[id],.main h2[id],.main li[id]{scroll-margin-top:calc(var(--rui-doc-offset) + .75rem)}
+.rui-catalog-filters{display:grid;grid-template-columns:minmax(0,2fr) minmax(12rem,1fr);gap:1rem;margin-block:1rem}
+.rui-catalog-filters label{display:block;font-size:.85rem;font-weight:700;margin-bottom:.4rem}
+.rui-catalog-filters input,.rui-catalog-filters select{width:100%;min-width:0;min-height:2.75rem;padding:.55rem .65rem;background:var(--surface);color:var(--text);border:1px solid var(--rule-strong);border-radius:var(--radius)}
+.rui-catalog-list{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:2rem}
+.rui-catalog-item{padding:1rem 0;border-top:1px solid var(--rule);min-width:0}
+.rui-catalog-item[hidden]{display:none!important}
+.rui-catalog-item h3{margin:0 0 .45rem;font-size:1rem;line-height:1.3}
+.rui-catalog-item p{margin:0 0 .5rem;color:var(--text);font-size:.87rem;overflow-wrap:anywhere}
+.rui-catalog-category{font-size:.76rem;color:var(--muted)}
+.rui-review-item{padding:.7rem 0;border-top:1px solid var(--rule);scroll-margin-top:calc(var(--rui-doc-offset) + .75rem)}
+.rui-review-item h3{margin:.6rem 0;font-size:1.05rem}
+.rui-review-item p{margin:.5rem 0}
+.rui-review-item li{margin:.4rem 0}
+.rui-table-wrap{max-width:100%;overflow-x:auto;margin:1rem 0;overscroll-behavior-x:contain}
+.rui-table-wrap .spec{min-width:38rem;margin:0}
+.main [data-rui-doc-scroll]:focus-visible{outline:2px solid var(--focus);outline-offset:3px}
+.rui-crosswalk td:nth-child(1){width:15%}
+.rui-crosswalk td:nth-child(2){width:20%}
+.rui-crosswalk td:nth-child(3){width:17%}
+.header .hdr-actions{display:flex!important}
+
+/* Explanatory documentation reads as sections, not a dashboard of detail cards.
+   Restrict this treatment to known documentation groups. The excluded roots
+   contain application specimens, including examples that reuse these classes. */
+.main :is(.rule-grid,.package-grid,.class-grid,.doc-grid,.profile-grid,.archetype-index,.arch-row,.cap-grid):not(:where(.example,.stage,.specimen,.example-grid,.archetype-app,[data-primary-specimen]) *){
+ display:block;
+ max-inline-size:88ch;
+ margin-block:1rem 1.75rem;
+}
+.main :is(.rule-grid,.package-grid,.class-grid,.doc-grid,.profile-grid,.archetype-index,.arch-row,.cap-grid):not(:where(.example,.stage,.specimen,.example-grid,.archetype-app,[data-primary-specimen]) *)>:is(.card,.profile-card,.archetype-card,.arch-box,.cap-col){
+ display:block;
+ min-inline-size:0;
+ min-block-size:0;
+ padding:0 0 1rem;
+ margin:0;
+ border:0;
+ border-radius:0;
+ background:transparent;
+ box-shadow:none;
+}
+.main :is(.rule-grid,.package-grid,.class-grid,.doc-grid,.profile-grid,.archetype-index,.arch-row,.cap-grid):not(:where(.example,.stage,.specimen,.example-grid,.archetype-app,[data-primary-specimen]) *)>:is(.card,.profile-card,.archetype-card,.arch-box,.cap-col)+:is(.card,.profile-card,.archetype-card,.arch-box,.cap-col){
+ padding-block-start:1rem;
+ border-block-start:1px solid var(--rule);
+}
+.main :is(.rule-grid,.package-grid,.class-grid,.doc-grid,.profile-grid,.archetype-index,.arch-row,.cap-grid):not(:where(.example,.stage,.specimen,.example-grid,.archetype-app,[data-primary-specimen]) *)>:is(.card,.profile-card,.archetype-card,.arch-box,.cap-col)>h3{
+ margin:.2rem 0 .5rem;
+ padding:0;
+ border:0;
+ background:transparent;
+ font-size:1.05rem;
+ line-height:1.4;
+}
+.main :is(.rule-grid,.package-grid,.class-grid,.doc-grid,.profile-grid,.archetype-index,.arch-row,.cap-grid):not(:where(.example,.stage,.specimen,.example-grid,.archetype-app,[data-primary-specimen]) *)>:is(.card,.profile-card,.archetype-card,.arch-box,.cap-col)>p{
+ margin:.4rem 0;
+ color:var(--text);
+ font-size:inherit;
+ line-height:1.65;
+}
+.main :is(.rule-grid,.package-grid,.class-grid,.doc-grid,.profile-grid,.archetype-index,.arch-row,.cap-grid):not(:where(.example,.stage,.specimen,.example-grid,.archetype-app,[data-primary-specimen]) *)>:is(.card,.profile-card,.archetype-card,.arch-box,.cap-col)>:is(.rule-id,.mode){
+ display:block;
+ color:var(--muted);
+ line-height:1.5;
+}
+
+.main .arch[class]:not(:where(.example,.stage,.specimen,.example-grid,.archetype-app,[data-primary-specimen]) *){
+ padding:0;
+ border:0;
+ border-radius:0;
+ background:transparent;
+}
+.main .arch-row:not(:where(.example,.stage,.specimen,.example-grid,.archetype-app,[data-primary-specimen]) *)>.arch-box>.small{
+ display:block;
+ color:var(--text);
+ font-size:inherit;
+ line-height:1.65;
+}
+.main .cap-grid:not(:where(.example,.stage,.specimen,.example-grid,.archetype-app,[data-primary-specimen]) *)>.cap-col>ul{
+ margin:.65rem 0;
+ padding-inline-start:1.25rem;
+}
+.main .cap-grid:not(:where(.example,.stage,.specimen,.example-grid,.archetype-app,[data-primary-specimen]) *)>.cap-col li{
+ font-size:inherit;
+ line-height:1.6;
+}
+
+/* Routine implementation guidance and rationale links belong in the reading flow.
+   Keep task-specific notices and application callouts under their existing rules. */
+.main .research-rationale[class]:not(:where(.example,.stage,.specimen,.example-grid,.archetype-app,[data-primary-specimen]) *),
+.main :is(#implementation,#research-basis)>.sectionbox:not(:where(.example,.stage,.specimen,.example-grid,.archetype-app,[data-primary-specimen]) *){
+ max-inline-size:88ch;
+ margin-block:.75rem 1rem;
+ padding:0;
+ border:0;
+ border-radius:0;
+ background:transparent;
+ box-shadow:none;
+}
+.main .research-rationale:not(:where(.example,.stage,.specimen,.example-grid,.archetype-app,[data-primary-specimen]) *) a{font-weight:400}
+
+/* Related documentation destinations use ordinary links with generous targets. */
+.main .related:not(:where(.example,.stage,.specimen,.example-grid,.archetype-app,[data-primary-specimen]) *){
+ display:flex;
+ flex-wrap:wrap;
+ gap:.25rem 1.5rem;
+ margin-block:.6rem 1rem;
+}
+.main .related:not(:where(.example,.stage,.specimen,.example-grid,.archetype-app,[data-primary-specimen]) *)>a[href]{
+ display:inline-flex;
+ align-items:center;
+ min-block-size:1.75rem;
+ max-inline-size:100%;
+ padding:.15rem 0;
+ border:0;
+ border-radius:0;
+ background:transparent;
+ color:var(--brand);
+ font-size:.875rem;
+ line-height:1.6;
+ text-decoration:underline;
+ text-underline-offset:.18em;
+ overflow-wrap:anywhere;
+}
+.main .related:not(:where(.example,.stage,.specimen,.example-grid,.archetype-app,[data-primary-specimen]) *)>a[href]:hover{text-decoration-thickness:2px}
+.main .related:not(:where(.example,.stage,.specimen,.example-grid,.archetype-app,[data-primary-specimen]) *)>a[href]:focus-visible{outline:2px solid var(--focus);outline-offset:3px}
+@media(pointer:coarse){
+ .main .related:not(:where(.example,.stage,.specimen,.example-grid,.archetype-app,[data-primary-specimen]) *)>a[href]{min-block-size:2.75rem}
+}
+@media(min-width:761px) and (max-width:1100px){
+ .layout{grid-template-columns:15rem minmax(0,1fr)!important}
+ .side[data-rui-navigation="2"]{grid-column:1;grid-row:1 / span 2}
+ .rui-mobile-toc{display:block;grid-column:2;padding:.85rem 1.5rem 0;background:var(--doc-bg)}
+ .main{grid-column:2}
+ .rui-mobile-toc summary{cursor:pointer;font-size:.85rem;min-height:2.25rem;padding:.3rem 0}
+ .rui-mobile-toc a{display:block;padding:.35rem .5rem;color:var(--text)}
+}
+@media(max-width:760px){
+ .header{grid-template-columns:minmax(0,1fr) auto auto!important;gap:.5rem!important;padding:.6rem .8rem!important}
+ .header .brand{min-width:0}
+ .header .brand small{display:none}
+ .header .hdr-actions button{min-width:2.75rem;min-height:2.75rem}
+ .header .searchbox{min-height:2.75rem}
+ .rui-area-navigation{gap:0;padding:0 .5rem}
+ .rui-area-navigation a{min-height:2.75rem;padding:.4rem .5rem;font-size:.73rem}
+ .side[data-rui-navigation="2"]{display:block!important;position:static;height:auto;max-height:none;width:100%;padding:.5rem 1rem;border-bottom:1px solid var(--rule);border-inline-end:0}
+ .rui-browse>summary{display:list-item;cursor:pointer;min-height:2.75rem;padding:.65rem 0;font-weight:700;font-size:.88rem}
+ .rui-browse>nav{max-height:60dvh;overflow:auto;padding:.25rem .1rem .5rem}
+ .rui-browse a,.rui-browse nav>details>summary{min-height:2.75rem!important;padding-block:.65rem!important}
+ .rui-browse .rui-topic-title{display:none}
+ .rui-mobile-toc{display:block;padding:.4rem 1rem;background:var(--surface2);border-bottom:1px solid var(--rule)}
+ .rui-mobile-toc summary{cursor:pointer;min-height:2.75rem;padding:.65rem 0;font-size:.85rem}
+ .rui-mobile-toc nav{max-height:50dvh;overflow:auto}
+ .rui-mobile-toc a{display:block;padding:.65rem .5rem;min-height:2.75rem;color:var(--text);font-size:.84rem}
+ .rui-catalog-filters,.rui-catalog-list{grid-template-columns:1fr}
+ .rui-table-wrap .spec{display:table}
+ .rui-table-wrap th,.rui-table-wrap td{min-width:7rem}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}}
+@media(forced-colors:active){.rui-area-navigation a[data-current-area],.rui-browse a.current,.toc a[aria-current="location"]{outline:2px solid Highlight;outline-offset:-2px}}
+@media print{.rui-skip,.rui-area-navigation,.rui-mobile-toc,.side[data-rui-navigation="2"]{display:none!important}.rui-catalog-filters{display:none}.rui-catalog-item[hidden]{display:block!important}.rui-catalog-list{display:block}.rui-table-wrap{overflow:visible}.rui-table-wrap .spec{min-width:0}}
+.rui-search-native{width:min(48rem,calc(100% - 2rem));max-height:80dvh;margin:8dvh auto auto;padding:0;border:1px solid var(--rule-strong);border-radius:var(--radius);background:var(--surface);color:var(--text);font:inherit;box-shadow:var(--shadow)}
+.rui-search-native[open]{display:grid;grid-template-rows:auto auto minmax(0,1fr)}
+.rui-search-native::backdrop{background:rgb(0 0 0 / .6)}
+.rui-search-native .rui-search-field{display:block;margin:0}
+.rui-search-label{display:block;font-size:.85rem;font-weight:700;margin-bottom:.5rem}
+.rui-search-input-row{display:flex;align-items:center;gap:.5rem}
+.rui-search-input-row input{min-width:0}
+.rui-search-input-row button{min-height:2.75rem;border:1px solid var(--rule-strong);border-radius:var(--radius);background:var(--surface2);color:var(--text);padding:.45rem .7rem;cursor:pointer}
+.rui-search-status{font-size:.8rem;margin:0;padding:.6rem 1rem;color:var(--muted)}
+.rui-search-result-list{list-style:none;margin:0;padding:0}
+.rui-search-native .rui-search-result:focus{outline:2px solid var(--focus);outline-offset:-2px;background:var(--surface2)}
+@media(max-width:760px){.rui-search-native{max-height:calc(100dvh - 2rem);margin-top:1rem}}
+
+.header .searchbox{font:inherit;text-align:start;color:inherit}
+.header .searchbox .rui-search-short{display:none}
+@media(max-width:760px){.header .searchbox .rui-search-short{display:inline!important}.header .searchbox .rui-search-long,.header .searchbox kbd{display:none!important}}
+/* Shell text consumes semantic tokens in both themes; never specimen-local paint. */
+.main>.lede,.toc>strong{color:var(--muted)!important}
+.main>.kicker{color:var(--brand)!important}
+html[data-theme="dark"] .main>.kicker{color:var(--accent)!important}
+
+/* Normalize older family headers to the same search and theme controls. */
+.header .searchbox{display:flex;justify-content:space-between;align-items:center;gap:.75rem;padding:.5rem .7rem;border:1px solid currentColor;border-radius:var(--radius);background:transparent;color:inherit}
+.header .searchbox kbd{font-size:.7rem;border:1px solid currentColor;border-radius:.2rem;padding:.06rem .3rem}
+.header .hdr-actions button{background:transparent;color:inherit;border:1px solid currentColor;border-radius:.25rem;min-width:2.1rem;min-height:2.1rem}
+@media(max-width:760px){.header .hdr-actions button{min-width:2.75rem;min-height:2.75rem}}
+
+/* A light specimen remains light when the documentation shell is dark. */
+html[data-theme="dark"] .stage:not(.dark-stage) .spec{background:var(--surface);color:var(--text)}
+html[data-theme="dark"] .stage:not(.dark-stage) .spec th{background:var(--surface2);color:var(--muted)}
+html[data-theme="dark"] .stage:not(.dark-stage) .spec td,html[data-theme="dark"] .stage:not(.dark-stage) .spec th{border-color:var(--rule)}
+html[data-theme="dark"] .stage:not(.dark-stage) a:not(.btn):not(.iconbtn){color:var(--brand)}
+.example>.exhead .viewtoggle button.active{box-shadow:inset 0 -2px currentColor;font-weight:700}
+
+/* Shared-rule navigation is a link list, not inline prose or a button/card grid. */
+section[data-stria-semantics="1"]>ul>li>a{display:inline-flex;align-items:center;box-sizing:border-box;min-block-size:max(24px,1.5rem);min-inline-size:24px;max-inline-size:100%;padding-block:.25rem;line-height:1.5;white-space:normal;overflow-wrap:anywhere}
+section[data-stria-semantics="1"]>ul>li>a:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+@media(pointer:coarse){section[data-stria-semantics="1"]>ul>li>a{min-block-size:max(44px,2.75rem)}}
+
+/* The documentation shell honors the user's forced palette independently of
+   light/dark preference. Canvas/CanvasText also style native shell controls: some
+   WebKit high-contrast palettes pair a light ButtonFace with white ButtonText.
+   Explicit system canvas colors retain the user palette and native appearance.
+   Specimen scopes keep their own forced-color contracts. */
+@media(forced-colors:active){
+ body,.header,.rui-area-navigation,.side[data-rui-navigation="2"],.toc,.rui-mobile-toc,.main>.footer{color:CanvasText!important;background:Canvas!important;border-color:CanvasText!important}
+ .header .brand,.header .brand strong,.header .brand small,.header .searchbox,.header kbd{color:CanvasText!important;background:Canvas!important;border-color:CanvasText!important}
+ .header .mark{background:Canvas!important;border:2px solid CanvasText}
+ .rui-browse .rui-topic-title,.toc>strong{color:CanvasText!important}
+ .rui-search-native,.rui-search-native .rui-search-label,.rui-search-native .rui-search-status,.rui-search-native .rui-search-result span{color:CanvasText!important;background:Canvas!important;border-color:CanvasText!important}
+ .rui-search-native :is(input,button){color:CanvasText!important;background:Canvas!important;border-color:CanvasText!important}
+ .rui-search-native .rui-search-result,.rui-search-native .rui-search-result strong{color:LinkText!important;background:Canvas!important}
+ .rui-search-native .rui-search-result:focus{outline:2px solid Highlight;outline-offset:-2px}
+ .main :is(h1,h2,h3,h4,p,li,.crumb,.lede,.kicker):not(.stage *):not(.specimen *){color:CanvasText!important}
+ .main :is(table,caption,th,td):not(.stage *):not(.specimen *){color:CanvasText!important;background:Canvas!important;border-color:CanvasText!important}
+ .main a:not(.stage *):not(.specimen *),.rui-area-navigation a,.side[data-rui-navigation="2"] a,.toc a,.rui-mobile-toc a{color:LinkText!important}
+ .side[data-rui-navigation="2"] a{background:Canvas!important}
+ .side[data-rui-navigation="2"] a.current,.rui-area-navigation a[data-current-area],.toc a[aria-current="location"],.rui-mobile-toc a[aria-current="location"]{color:LinkText!important;background:Canvas!important;outline:2px solid Highlight;outline-offset:-2px}
+ .example>.exhead{color:CanvasText!important;background:Canvas!important;border-color:CanvasText!important}
+ .example>.exhead :is(button,select){color:CanvasText!important;background:Canvas!important;border-color:CanvasText!important}
+ .example>.exhead .viewtoggle button.active{outline:2px solid Highlight;outline-offset:-3px;box-shadow:none}
+}
